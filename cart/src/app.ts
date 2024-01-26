@@ -1,9 +1,8 @@
-import express, { Request, Response, Application } from "express";
-// import {
-//   NotAuthorizedError,
-//   NotFoundError,
-//   errorHandler,
-// } from "@nabeel/common";
+import express, { Request, Response, NextFunction, Application } from "express";
+import {
+  NotFoundError,
+  errorHandler
+} from "@nabeelshop/common";
 import cartRoutes from "./routes/cartRoutes"
 
 const app: Application = express();
@@ -17,20 +16,13 @@ app.get('/', (req: Request, res: Response) => {
     })
 })
 
-app.use("/api/cart", cartRoutes);
+app.use(cartRoutes);
 
-app.all("*", async (req: Request, res: Response) => {
-    res.status(404).json({
-        message: "page not found!"
-    })
+app.all("*", async (req: Request, res: Response, next: NextFunction) => {
+    next(new NotFoundError());
 });
 
-app.use(async (error: any, req: Request, res: Response) => {
-    res.status(400).json({
-        error: error,
-        message: "something went wrong!"
-    })
-});
+app.use(errorHandler);
 
 const port: number = Number(process.env.PORT) || 3003
 app.listen(port, () => {

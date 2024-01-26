@@ -1,17 +1,17 @@
 export default (dependencie: any) => {
 
     const {
-        cartRepositories: { removeProductFromCart }
+        cartRepositories: { removeFromCart }
     } = dependencie;
 
-    if (!removeProductFromCart) {
+    if (!removeFromCart) {
         throw new Error('Dependency is required for remove product from cart!');
     }
 
     const interactor = async (
         data: any,
     ) => {
-        return await removeProductFromCart(data);
+        return await removeFromCart(data);
     }
 
     return { interactor }

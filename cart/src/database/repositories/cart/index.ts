@@ -1,7 +1,3 @@
-import { addProductToCart } from "./addProductToCart";
-import { removeProductFromCart } from "./removeProductToCart";
-
-export {
-    addProductToCart,
-    removeProductFromCart
-}
+export * from "./addToCart";
+export * from "./getCart";
+export * from "./removeFromCart";

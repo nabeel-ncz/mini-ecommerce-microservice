@@ -1,1 +1,2 @@
-export * from "./cart/cartEntity";
+export * from "./cartEntity";
+export * from "./productEntity";

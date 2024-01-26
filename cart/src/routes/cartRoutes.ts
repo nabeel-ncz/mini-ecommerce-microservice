@@ -6,12 +6,16 @@ const router: Router = Router();
 
 const {
     addToCartController,
-    removeFromCartController
+    removeFromCartController,
+    getCartController
 } = cartController(dependencies);
 
 
-router.route('/')
+router.route('/api/cart/')
     .post(addToCartController)
     .delete(removeFromCartController);
+
+router.route('/api/cart/:id')
+    .get(getCartController);
 
 export default router;

@@ -1,8 +1,8 @@
-import { Cart } from "../../index";
+import { Cart } from "../../models/cart";
 import { CartEntity } from "../../../entities";
 import { Types } from "mongoose";
 
-export const removeProductFromCart = async (
+export const removeFromCart = async (
     data: {
         userId: Types.ObjectId,
         productId: Types.ObjectId

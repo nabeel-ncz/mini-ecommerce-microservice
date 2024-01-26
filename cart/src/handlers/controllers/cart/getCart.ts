@@ -2,33 +2,32 @@ import { Request, Response, NextFunction } from "express";
 
 export default (dependencie: any) => {
     const {
-        cartUsecases: { addToCartUsecase }
+        cartUsecases: { getCartUsecase }
     } = dependencie;
 
 
-    const addToCart = async (
+    const getCart = async (
         req: Request,
         res: Response,
         next: NextFunction
     ) => {
         try {
-
-            const cart = await addToCartUsecase(dependencie).interactor(req.body);
+            const userId = req.params.id;
+            const cart = await getCartUsecase(dependencie).interactor(userId);
 
             if (!cart) {
-                throw new Error("Add product to cart failed!");
+                throw new Error("Get cart products failed!");
             }
 
-            res.status(201).json({
+            res.status(200).json({
                 success: true,
                 data: cart,
-                message: "Product added to cart!"
+                message: "Products retreieved from cart!"
             });
-            
         } catch (error: any) {
             next(error);
         }
     }
 
-    return addToCart;
+    return getCart;
 }
