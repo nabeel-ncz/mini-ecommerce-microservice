@@ -16,9 +16,9 @@ export default (dependencie: any) => {
 
             const data = req.body;
 
-            // if(!data?.image){
-            //     data.image = req.file;
-            // }
+            if(!data?.image){
+                data.image = req?.file?.filename;
+            }
 
             const product = updateProductUsecase(dependencie).interactor(data);
 

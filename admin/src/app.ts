@@ -10,6 +10,7 @@ import {
     errorHandler
 } from "@nabeelshop/common";
 
+import path from "path";
 import userRouter from "./routes/userRoutes";
 import productRouter from "./routes/productRoutes";
 
@@ -23,6 +24,9 @@ app.get('/', (req: Request, res: Response) => {
         message: "Admin service ON!"
     })
 })
+
+//image uploads- just for simplicity
+app.use('/api/images',express.static(path.join(__dirname,"public","uploads")));
 
 app.use(userRouter);
 app.use(productRouter);

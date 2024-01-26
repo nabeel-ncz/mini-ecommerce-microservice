@@ -14,7 +14,7 @@ export default (dependencie: any) => {
     ) => {
         try {
 
-            const image = "ertyu"
+            const image = req?.file?.filename;
             const data = req.body;
 
             const product = createProductUsecase(dependencie).interactor({
