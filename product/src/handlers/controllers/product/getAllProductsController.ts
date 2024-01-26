@@ -7,19 +7,22 @@ export default (dependencie: any) => {
     } = dependencie;
 
 
-    const findAllProducts = async (
+    const getAllProductsController = async (
         req: Request,
         res: Response,
         next: NextFunction
     ) => {
         try {
 
-            const products = await findAllProductsUsecase(dependencie).interactor();
+            const page = req.query?.page;
+            const limit = req.query?.limit;
+
+            const products = await findAllProductsUsecase(dependencie).interactor(page, limit);
 
             res.status(200).json({
                 success: true,
                 data: products,
-                message: "product data retrieved successfully!"
+                message: "products data retrieved!"
             });
 
         } catch (error: any) {
@@ -27,5 +30,5 @@ export default (dependencie: any) => {
         }
     }
 
-    return findAllProducts;
+    return getAllProductsController;
 }

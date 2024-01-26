@@ -1,9 +1,7 @@
-import createProductUsecase from "./createProductUsecase";
+import findProductUsecase from "./findProductUsecase";
 import findAllProductsUsecase from "./findAllProductsUsecase";
-import updateProductUsecase from "./updateProductUsecase";
 
 export {
-    createProductUsecase,
-    findAllProductsUsecase,
-    updateProductUsecase
+    findProductUsecase,
+    findAllProductsUsecase
 } 

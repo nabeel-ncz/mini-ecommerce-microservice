@@ -1,11 +1,9 @@
-import create from "./create";
-import update from "./update";
-import findAll from "./findAll";
+import getAllProductsController from "./getAllProductsController";
+import getProductController from "./getProductController";
 
 export default (dependencie: any) => {
     return {
-        createProductController: create(dependencie),
-        updateProductController: update(dependencie),
-        findAllProductsController: findAll(dependencie)
+        getAllProductsController: getAllProductsController(dependencie),
+        getProductController: getProductController(dependencie)
     }
 }
