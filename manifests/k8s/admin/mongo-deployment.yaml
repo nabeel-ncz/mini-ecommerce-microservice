@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myshop-admin-mongodb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: admin-mongodb
+  template:
+    metadata:
+      labels:
+        app: admin-mongodb
+    spec:
+      containers:
+      - name:  admin-mongodb
+        image: mongo:latest
