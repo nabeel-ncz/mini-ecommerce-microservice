@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myshop-cart-deployment
+  labels:
+    name:  cart-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cart-service
+  template:
+    metadata:
+      labels:
+        app: cart-service
+    spec:
+      containers:
+      - image: nabeelncz/myshop-cart-service:latest
+        name: cart-service
+        envFrom:
+          - configMapRef:
+              name: cart-service-config

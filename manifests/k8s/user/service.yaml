@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  myshop-user-service
+spec:
+  selector:
+    app: user-service
+  ports:
+  - name:  user-service
+    protocol: TCP
+    port:  3005
+    targetPort: 3005

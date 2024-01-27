@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myshop-user-deployment
+  labels:
+    name:  user-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+      - image: nabeelncz/myshop-user-service:latest
+        name: user-service
+        envFrom:
+          - configMapRef:
+              name: user-service-config
