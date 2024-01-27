@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name:  myshop-auth-service
+  name:  myshop-cart-service
 spec:
   selector:
-    app: auth-service
+    app: cart-service
   ports:
-  - name:  auth-service
+  - name:  cart-service
     protocol: TCP
     port:  3003
     targetPort: 3003
