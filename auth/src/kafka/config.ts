@@ -5,4 +5,4 @@ export const kafka = new Kafka({
     brokers: [`${process.env.KAFKA_BROKER_URLS}`]
 });
 
-export const topic = String(process.env.KAFKA_AUTH_SERVICE_TOPIC);
+export const topic = String(process.env.KAFKA_SERVICE_TOPIC);
