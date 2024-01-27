@@ -1,10 +1,7 @@
-import { create } from "./create";
-import { update } from "./update";
-import { findAll } from "./findAll";
-
+import { findAll } from "./findAll"
+import { findById } from "./findById"
 
 export {
-    create,
-    update,
+    findById,
     findAll
 }

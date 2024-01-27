@@ -1,7 +1,7 @@
 import { Product } from "../../models/product";
 import { ProductEntity } from "../../../entities";
 
-export const findProduct = async (
+export const findById = async (
     id: string
 ): Promise<ProductEntity | null> => {
     try {
