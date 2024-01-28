@@ -1,8 +1,5 @@
-import { Producer } from "kafkajs";
-import { kafka } from "../index";
+import { producer } from "../index";
 import { PRODUCT_SERVICE_TOPIC, PRODUCT_CREATED_MESSAGE } from "@nabeelshop/common";
-
-const producer: Producer = kafka.producer();
 
 export default async (
     data: { 

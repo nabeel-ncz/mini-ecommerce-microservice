@@ -37,7 +37,7 @@ app.all("*", async (req: Request, res: Response, next: NextFunction) => {
 
 app.use(errorHandler);
 
-const port: number = Number(process.env.PORT) || 3001
+const port: number = Number(process.env.PORT) || 3002
 app.listen(port, () => {
     console.log(`Admin Service listening at ${port}`);
 })

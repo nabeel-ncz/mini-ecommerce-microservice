@@ -1,13 +1,8 @@
-import { Consumer } from "kafkajs";
-import { kafka } from "./index";
+import { consumer } from "./index";
 import { createSubscriber, IAdminSubscriber } from "./subscriber";
 import { ADMIN_SERVICE_TOPIC } from "@nabeelshop/common";
 
-const consumer: Consumer = kafka.consumer({
-    groupId: String(process.env.KAFKA_CLIENT_ID),
-})
-
-export default async () => {
+export const runConsumer = async () => {
     try {
 
         await consumer.connect();
@@ -34,10 +29,12 @@ export default async () => {
 
             }
         });
-
     } catch (error: any) {
-        console.error('kafka consume error : ', error?.message);
-    } finally {
-        consumer.disconnect();
+        throw new Error("Kafka Consume Error : " + error?.message);
     }
+}
+
+export const stopConsumer = async () => {
+    await consumer.stop();
+    await consumer.disconnect();
 }
