@@ -10,3 +10,4 @@ export * from "./middlewares/require-auth";
 
 export * from "./messages/messages";
 export * from "./messages/topics";
+export * from "./messages/subcriber";
