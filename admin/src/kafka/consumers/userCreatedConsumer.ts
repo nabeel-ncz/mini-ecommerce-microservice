@@ -3,9 +3,9 @@ import { ObjectId } from "mongoose";
 
 export default async (
     data: {
-        _id: ObjectId,
+        _id: ObjectId;
         name: string;
-        email: string,
+        email: string;
         password: string;
         isAdmin: boolean;
         isBlocked: boolean;
