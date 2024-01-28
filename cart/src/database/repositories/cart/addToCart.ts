@@ -1,11 +1,11 @@
 import { Cart } from "../../models/cart";
 import { CartEntity } from "../../../entities";
-import { Types } from "mongoose";
+import { ObjectId } from "mongoose";
 
 export const addToCart = async (
     data: {
-        userId: Types.ObjectId,
-        productId: Types.ObjectId,
+        userId: ObjectId,
+        productId: ObjectId,
         quantity: number
     }
 ): Promise<CartEntity | null> => {

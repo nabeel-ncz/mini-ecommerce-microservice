@@ -1,11 +1,11 @@
 import { Cart } from "../../models/cart";
 import { CartEntity } from "../../../entities";
-import { Types } from "mongoose";
+import { ObjectId } from "mongoose";
 
 export const removeFromCart = async (
     data: {
-        userId: Types.ObjectId,
-        productId: Types.ObjectId
+        userId: ObjectId,
+        productId: ObjectId
     }
 ): Promise<CartEntity | null> => {
     try {
@@ -25,7 +25,7 @@ export const removeFromCart = async (
 
         const updatedCart = await existingCart?.save();
 
-        return updatedCart as CartEntity;
+        return updatedCart;
     
     } catch (error: any) {
         throw new Error(error?.message);
