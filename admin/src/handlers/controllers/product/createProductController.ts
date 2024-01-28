@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { productCreatedProducer } from "../../../kafka/producers/productCreatedProducer";
 
 export default (dependencie: any) => {
 
@@ -21,6 +22,9 @@ export default (dependencie: any) => {
                 image: image,
                 ...data
             });
+
+            //produce-message============
+            await productCreatedProducer(product);
 
             res.status(201).json({
                 success: true,

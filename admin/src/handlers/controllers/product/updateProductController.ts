@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import { productUpdatedProducer } from "../../../kafka/producers/productUpdatedProducer";
 
 export default (dependencie: any) => {
 
@@ -21,6 +22,9 @@ export default (dependencie: any) => {
             }
 
             const product = await updateProductUsecase(dependencie).interactor(id,data);
+
+            //produce-message
+            await productUpdatedProducer(product);
 
             res.status(200).json({
                 success: true,

@@ -5,7 +5,7 @@ import {
     PRODUCT_CREATED_MESSAGE
 } from "@nabeelshop/common";
 
-export const productCreatedProducer = async (
+export const productUpdatedProducer = async (
     data: {
         _id: string;
         title: string;
