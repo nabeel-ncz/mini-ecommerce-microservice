@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { genSalt, hash } from "bcrypt"
 import generateToken from "../../../utils/jwt/generateToken";
+import userCreatedProducer from "../../../kafka/producers/userCreatedProducer";
 
 export default (dependencie: any) => {
     const {
@@ -25,6 +26,10 @@ export default (dependencie: any) => {
             credentials.password = hashedPassword;
             
             const user = await createUserUsecase(dependencie).interactor(credentials);
+
+            //produce-user-created-event
+            await userCreatedProducer(user);
+            //==========================
 
             const token = generateToken({userId: user._id, userEmail: user.email});
 
