@@ -7,7 +7,14 @@ export const updateProduct = async (
     try {
 
         const updated = await Product.findByIdAndUpdate(id, {
-            $set: { ...data }
+            $set: {
+                title: data.title,
+                description: data.description,
+                stock: data.stock,
+                isBlocked: data.isBlocked,
+                price: data.price,
+                image: data.image
+            }
         }, { new: true });
 
         if (!updated) {

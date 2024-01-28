@@ -26,7 +26,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 //image uploads- just for simplicity
-app.use('/api/images',express.static(path.join(__dirname,"public","uploads")));
+app.use('/api/images', express.static(path.join(__dirname, "..", "public", "uploads")));
 
 app.use(userRouter);
 app.use(productRouter);
@@ -35,7 +35,10 @@ app.all("*", async (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError());
 });
 
-app.use(errorHandler);
+app.use((err, req, res, next) => {
+    console.log(err);
+    next();
+}, errorHandler);
 
 const port: number = Number(process.env.PORT) || 3002
 app.listen(port, () => {

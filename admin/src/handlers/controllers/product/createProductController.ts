@@ -17,7 +17,7 @@ export default (dependencie: any) => {
             const image = req?.file?.filename;
             const data = req.body;
 
-            const product = createProductUsecase(dependencie).interactor({
+            const product = await createProductUsecase(dependencie).interactor({
                 image: image,
                 ...data
             });

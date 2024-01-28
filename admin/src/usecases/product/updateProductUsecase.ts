@@ -9,6 +9,7 @@ export default (dependencie: any) => {
     }
 
     const interactor = async (
+        id: string,
         data: {
             title: string;
             stock: number;
@@ -18,7 +19,7 @@ export default (dependencie: any) => {
             isBlocked: boolean;
         }
     ) => {
-        return await updateProduct(data);
+        return await updateProduct(id, data);
     }
 
     return { interactor }

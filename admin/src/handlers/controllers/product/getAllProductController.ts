@@ -17,7 +17,7 @@ export default (dependencie: any) => {
             const page = req.query?.page;
             const limit = req.query?.limit;
 
-            const products = findAllProductUsecase(dependencie).interactor(page, limit);
+            const products = await findAllProductUsecase(dependencie).interactor(page, limit);
 
             res.status(200).json({
                 success: true,

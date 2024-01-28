@@ -15,9 +15,10 @@ const {
 router.route('/api/admin/products/')
     .get(getAllProductController)
     .post(upload.single('file'), createProductController)
-    .put(upload.single('file'), updateProductController)
+    
 
 router.route('/api/admin/products/:id')
-    .get(getProductController);
+    .get(getProductController)
+    .put(upload.single('file'), updateProductController)
 
 export default router;

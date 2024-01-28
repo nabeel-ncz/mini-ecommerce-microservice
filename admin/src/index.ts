@@ -6,17 +6,17 @@ import { runConsumer, stopConsumer } from "./kafka/consumer";
 (async () => {
     try {
 
-        await runConsumer()
-            .catch((error: any) => {
-                console.info(error);
-            })
-
         startAppliation;
 
         await connectToDatabase()
             .catch((error: any) => {
                 console.log(error);
                 process.exit();
+            })
+
+        await runConsumer()
+            .catch((error: any) => {
+                console.info(error);
             })
 
         process.on('SIGTERM', async () => {

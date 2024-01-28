@@ -13,14 +13,14 @@ export default (dependencie: any) => {
         next: NextFunction
     ) => {
         try {
-
+            const id = req.params.id;
             const data = req.body;
 
             if(!data?.image){
                 data.image = req?.file?.filename;
             }
 
-            const product = updateProductUsecase(dependencie).interactor(data);
+            const product = await updateProductUsecase(dependencie).interactor(id,data);
 
             res.status(200).json({
                 success: true,

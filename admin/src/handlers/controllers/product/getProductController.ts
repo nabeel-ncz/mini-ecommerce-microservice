@@ -16,7 +16,7 @@ export default (dependencie: any) => {
 
             const id = req.params?.id;
 
-            const product = findProductUsecase(dependencie).interactor(id);
+            const product = await findProductUsecase(dependencie).interactor(id);
 
             res.status(200).json({
                 success: true,
