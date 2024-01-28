@@ -1,7 +1,9 @@
 import { createUser } from "../../database/repositories/user/createUser";
+import { ObjectId } from "mongoose";
 
 export default async (
     data: {
+        _id: ObjectId,
         name: string;
         email: string,
         password: string;

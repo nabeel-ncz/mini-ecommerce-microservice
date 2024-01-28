@@ -1,9 +1,9 @@
 import { updateUser } from "../../database/repositories/user/updateUser";
-import { Types } from "mongoose";
+import { ObjectId } from "mongoose";
 
 export default async (
     data: {
-        _id: Types.ObjectId,
+        _id: ObjectId,
         name: string;
         email: string
     }

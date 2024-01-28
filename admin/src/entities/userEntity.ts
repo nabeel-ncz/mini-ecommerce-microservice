@@ -1,7 +1,7 @@
-import { Types } from "mongoose";
+import { ObjectId } from "mongoose";
 
 export interface UserEntity{
-    _id?: Types.ObjectId;
+    _id?: ObjectId;
     name: String;
     email: String,
     password: String;
