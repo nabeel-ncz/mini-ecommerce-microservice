@@ -1,5 +1,4 @@
-import { Producer } from "kafkajs";
-import { kafka } from "../index";
+import { producer } from "../index";
 import { ObjectId } from "mongoose";
 import {
     USER_SERVICE_TOPIC,
@@ -7,8 +6,6 @@ import {
     CART_SERVICE_TOPIC,
     USER_CREATED_MESSAGE
 } from "@nabeelshop/common";
-
-const producer: Producer = kafka.producer();
 
 export default async (
     data: {
