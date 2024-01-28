@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myshop-zookeeper-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: zookeeper-service
+  template:
+    metadata:
+      labels:
+        app: zookeeper-service
+    spec:
+      containers:
+        - image: wurstmeister/zookeeper
+          name: zookeeper-service
+          ports:
+            - containerPort: 2181
