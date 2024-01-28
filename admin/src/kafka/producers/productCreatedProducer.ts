@@ -1,10 +1,11 @@
 import { Producer } from "kafkajs";
-import { kafka, topic } from "..";
+import { kafka } from "../index";
+import { PRODUCT_SERVICE_TOPIC, PRODUCT_CREATED_MESSAGE } from "@nabeelshop/common";
 
 const producer: Producer = kafka.producer();
 
-export const updateProductProducer = async (
-    data: {
+export default async (
+    data: { 
         id: string;
         title: string;
         stock: number;
@@ -12,18 +13,17 @@ export const updateProductProducer = async (
         image: string;
         price: number;
         isBlocked: boolean;
-    }
+     }
 ) => {
     try {
         await producer.connect();
 
-        const value = JSON.stringify(data);
-
         await producer.send({
-            topic: topic,
+            topic: PRODUCT_SERVICE_TOPIC,
             messages: [
                 {
-                    value: value
+                    key: PRODUCT_CREATED_MESSAGE,
+                    value: JSON.stringify(data)
                 }
             ]
         })

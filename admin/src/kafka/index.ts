@@ -1,6 +1,6 @@
-import { kafka, topic } from "./config";
+import { Kafka } from "kafkajs";
 
-export {
-    kafka,
-    topic
-}
+export const kafka = new Kafka({
+    clientId: String(process.env.KAFKA_CLIENT_ID),
+    brokers: [`${process.env.KAFKA_BROKER_URLS}`]
+});
