@@ -24,7 +24,6 @@ app.get('/', (req: Request, res: Response) => {
         message: "Admin service ON!"
     })
 })
-
 //image uploads- just for simplicity
 app.use('/api/images', express.static(path.join(__dirname, "..", "public", "uploads")));
 
