@@ -2,7 +2,7 @@ import { producer } from "../index";
 import {
     CART_SERVICE_TOPIC,
     PRODUCT_SERVICE_TOPIC,
-    PRODUCT_CREATED_MESSAGE
+    PRODUCT_UPDATED_MESSAGE
 } from "@nabeelshop/common";
 
 export const productUpdatedProducer = async (
@@ -24,14 +24,14 @@ export const productUpdatedProducer = async (
             {
                 topic: PRODUCT_SERVICE_TOPIC,
                 messages: [{
-                    key: PRODUCT_CREATED_MESSAGE,
+                    key: PRODUCT_UPDATED_MESSAGE,
                     value: JSON.stringify(data)
                 }]
             },
             {
                 topic: CART_SERVICE_TOPIC,
                 messages: [{
-                    key: PRODUCT_CREATED_MESSAGE,
+                    key: PRODUCT_UPDATED_MESSAGE,
                     value: JSON.stringify(data)
                 }]
             }
