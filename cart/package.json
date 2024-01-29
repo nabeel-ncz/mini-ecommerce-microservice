@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nabeelshop/common": "^1.0.2",
+    "@nabeelshop/common": "^1.0.5",
     "dotenv": "^16.3.2",
     "express": "^4.18.2",
     "kafkajs": "^2.2.4",

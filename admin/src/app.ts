@@ -34,10 +34,7 @@ app.all("*", async (req: Request, res: Response, next: NextFunction) => {
     next(new NotFoundError());
 });
 
-app.use((err, req, res, next) => {
-    console.log(err);
-    next();
-}, errorHandler);
+app.use(errorHandler);
 
 const port: number = Number(process.env.PORT) || 3002
 app.listen(port, () => {
