@@ -1,6 +1,6 @@
 import { Cart } from "../../models/cart";
 
-export const getCartProducts = async (
+export const getCart = async (
     userId: string,
 ) => {
     try {
@@ -9,6 +9,7 @@ export const getCartProducts = async (
             .populate("items.productId")
             .exec();
 
+            console.log(cart)
         return cart
     } catch (error: any) {
         throw new Error(error?.message);
