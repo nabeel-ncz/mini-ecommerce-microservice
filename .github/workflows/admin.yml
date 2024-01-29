@@ -1,4 +1,4 @@
-name: Workflow for publish Docker image
+name: Build & Publish admin service Docker image
 
 on:
   push:
@@ -31,5 +31,5 @@ jobs:
         with:
           context: ./admin/
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: latest
           labels: ${{ steps.meta.outputs.labels }}
