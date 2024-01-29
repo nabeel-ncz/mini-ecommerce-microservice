@@ -5,6 +5,7 @@ on:
     branches: ['master']
     paths:
       - "admin/**"
+  workflow_dispatch:
 
 jobs:
   push_to_registry:
