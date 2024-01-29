@@ -27,10 +27,15 @@ export default (dependencie: any) => {
                 throw new Error("Email or password is incorrect");
             }
 
-            const token = generateToken({userId: user._id, userEmail: user.email});
+            const token = generateToken({
+                userId: user._id,
+                userEmail: user.email,
+                isAdmin: user.isAdmin,
+                isBlocked: user.isBlocked
+            });
 
             res.cookie("auth", token, {
-                maxAge: 1000*60*60*24,
+                maxAge: 1000 * 60 * 60 * 24,
                 httpOnly: true
             });
 

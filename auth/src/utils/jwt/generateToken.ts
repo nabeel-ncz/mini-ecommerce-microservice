@@ -3,6 +3,8 @@ import jwt from "jsonwebtoken";
 export default (payload: {
     userId: string,
     userEmail: string
+    isAdmin: boolean,
+    isBlocked: boolean
 }) => {
     return jwt.sign(
         payload,
