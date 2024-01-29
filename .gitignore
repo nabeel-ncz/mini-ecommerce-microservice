@@ -3,3 +3,5 @@ manifests/k8s/auth/config-map.yaml
 manifests/k8s/cart/config-map.yaml
 manifests/k8s/product/config-map.yaml
 manifests/k8s/user/config-map.yaml
+client/
+order/
