@@ -21,11 +21,11 @@ export default async (
         });
 
         console.log("==========");
-        console.log("user-updated-consumed cart-service");
+        console.log("user-updated-consumed user-service");
         console.log("==========");
 
     } catch (error: any){
-        console.log("user-updated cart-service error: ",error?.message);
+        console.log("user-updated user-service error: ",error?.message);
     }
 
 }

@@ -26,11 +26,11 @@ export default async (
         await user.save();
 
         console.log("==========");
-        console.log("user-created-consumed cart-service");
+        console.log("user-created-consumed user-service");
         console.log("==========");
 
     } catch (error: any){
-        console.log("user-created cart-service error: ",error?.message);
+        console.log("user-created user-service error: ",error?.message);
     }
 
 }
