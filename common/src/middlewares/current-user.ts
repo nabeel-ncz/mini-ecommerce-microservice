@@ -6,6 +6,7 @@ interface UserPayload {
     userId: string;
     userEmail: string;
     isAdmin: boolean;
+    isBlocked: boolean;
 }
 
 declare global {

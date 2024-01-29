@@ -8,6 +8,7 @@ export * from "./middlewares/current-user";
 export * from "./middlewares/error-handler";
 export * from "./middlewares/require-auth";
 export * from "./middlewares/require-admin";
+export * from "./middlewares/check-blocked-user";
 
 export * from "./messages/messages";
 export * from "./messages/topics";
