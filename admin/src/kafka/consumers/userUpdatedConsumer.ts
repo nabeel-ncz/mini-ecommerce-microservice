@@ -1,4 +1,4 @@
-import { updateUser } from "../../database/repositories/user/updateUser";
+import { User } from "../../database";
 import { ObjectId } from "mongoose";
 
 export default async (
@@ -8,16 +8,19 @@ export default async (
         email: string;
     }
 ) => {
-    
-    try{
-        await updateUser(data);
+
+    try {
+        await User.findByIdAndUpdate(data._id, {
+            name: data.name,
+            email: data.email
+        })
 
         console.log("==========");
         console.log("user-updated-consumed admin-service");
         console.log("==========");
 
-    } catch (error: any){
-        console.log("user-updated admin-service error: ",error?.message);
+    } catch (error: any) {
+        console.log("user-updated admin-service error: ", error?.message);
     }
 
 }

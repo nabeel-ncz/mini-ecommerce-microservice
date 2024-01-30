@@ -1,4 +1,4 @@
-import { createUser } from "../../database/repositories/user/createUser";
+import { User } from "../../database";
 import { ObjectId } from "mongoose";
 
 export default async (
@@ -13,7 +13,16 @@ export default async (
 ) => {
     
     try{
-        await createUser(data);
+        const user = new User({
+            _id: data._id,
+            name: data.name,
+            email:data.email,
+            password: data.password,
+            isAdmin: data.isAdmin,
+            isBlocked: data.isBlocked
+        })
+
+        await user.save();
 
         console.log("==========");
         console.log("user-created-consumed admin-service");
