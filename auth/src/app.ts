@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
-        message:"Auth service ON!"
+        message: "Auth service ON!"
     })
 })
 
@@ -24,9 +24,12 @@ app.all("*", async (req: Request, res: Response, next: NextFunction) => {
 
 app.use(errorHandler);
 
-const port: number = Number(process.env.PORT) || 3001
-app.listen(port, () => {
-    console.log(`Auth Service listening at ${port}`);
-})
+const port: number = Number(process.env.PORT) || 3001;
+
+if (!process.env.TEST_ENV) {
+    app.listen(port, () => {
+        console.log(`Auth Service listening at ${port}`);
+    })
+}
 
 export default app;
