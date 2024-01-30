@@ -6,8 +6,6 @@ export default async (
         _id: ObjectId;
         name: string;
         email: string;
-        isAdmin: boolean;
-        isBlocked: boolean;
     }
 ) => {
     
@@ -15,9 +13,7 @@ export default async (
         
         await User.findByIdAndUpdate(data._id,{
             name: data.name,
-            email: data.email,
-            isAdmin: data.isAdmin,
-            isBlocked: data.isBlocked
+            email: data.email
         });
 
         console.log("==========");

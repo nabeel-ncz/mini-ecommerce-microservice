@@ -15,7 +15,7 @@ export default (dependencie: any) => {
 
             const updatedCart = await removeFromCartUsecase(dependencie).interactor(req.body);
 
-            res.status(200).json({
+            res.status(204).json({
                 success: true,
                 data: updatedCart,
                 message: "Product removed from cart!"

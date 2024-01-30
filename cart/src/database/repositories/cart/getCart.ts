@@ -9,7 +9,6 @@ export const getCart = async (
             .populate("items.productId")
             .exec();
 
-            console.log(cart)
         return cart
     } catch (error: any) {
         throw new Error(error?.message);
