@@ -3,7 +3,7 @@ import {
     USER_SERVICE_TOPIC,
     AUTH_SERVICE_TOPIC,
     CART_SERVICE_TOPIC,
-    USER_BLOCKED_MESSAGE
+    USER_UNBLOCKED_MESSAGE
 } from "@nabeelshop/common";
 
 export const userUnBlockedProducer = async (
@@ -21,21 +21,21 @@ export const userUnBlockedProducer = async (
             {
                 topic: USER_SERVICE_TOPIC,
                 messages: [{
-                    key: USER_BLOCKED_MESSAGE,
+                    key: USER_UNBLOCKED_MESSAGE,
                     value: JSON.stringify(data)
                 }]
             },
             {
                 topic: AUTH_SERVICE_TOPIC,
                 messages: [{
-                    key: USER_BLOCKED_MESSAGE,
+                    key: USER_UNBLOCKED_MESSAGE,
                     value: JSON.stringify(data)
                 }]
             },
             {
                 topic: CART_SERVICE_TOPIC,
                 messages: [{
-                    key: USER_BLOCKED_MESSAGE,
+                    key: USER_UNBLOCKED_MESSAGE,
                     value: JSON.stringify(data)
                 }]
             }

@@ -6,7 +6,7 @@ export const blockUser = async (
 ): Promise<UserEntity | null> => {
     try {
 
-        const user = await User.findByIdAndUpdate(id, { isBlocked: true });
+        const user = await User.findByIdAndUpdate(id, { isBlocked: true }, { new: true });
 
         if (!user) {
             throw new Error("User does not exist!");
