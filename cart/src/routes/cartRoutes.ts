@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { cartController } from "../handlers/controllers";
+import { isBlockedUser } from "../handlers/middlewares/checkBlockedUser";
 import * as dependencies from "../config/dependencies";
 import {
     setCurrentUser,
     requireAuth,
-    checkBlockedUser
 } from "@nabeelshop/common";
 
 const router: Router = Router();
@@ -17,10 +17,10 @@ const {
 
 
 router.route('/api/cart/')
-    .post(setCurrentUser, requireAuth, checkBlockedUser, addToCartController)
-    .delete(setCurrentUser, requireAuth, checkBlockedUser, removeFromCartController);
+    .post(setCurrentUser, requireAuth, isBlockedUser, addToCartController)
+    .delete(setCurrentUser, requireAuth, isBlockedUser, removeFromCartController);
 
 router.route('/api/cart/:id')
-    .get(setCurrentUser, requireAuth, checkBlockedUser, getCartController);
+    .get(setCurrentUser, requireAuth, isBlockedUser, getCartController);
 
 export default router;
