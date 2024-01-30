@@ -8,7 +8,9 @@ export const isBlockedUser = async (
 ) => {
     try {
 
-        if (req.body?.email) {
+        const { email } = req.body;
+
+        if (!email) {
             throw new Error("There is something went wrong");
         }
 
