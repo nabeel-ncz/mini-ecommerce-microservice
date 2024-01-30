@@ -3,12 +3,14 @@ import {
     NotFoundError,
     errorHandler
 } from "@nabeelshop/common";
+import cookieParser from "cookie-parser";
 import authRoutes from "./routes/authRoutes"
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
@@ -26,7 +28,7 @@ app.use(errorHandler);
 
 const port: number = Number(process.env.PORT) || 3001;
 
-if (!process.env.TEST_ENV) {
+if (process.env.NOT_TEST_ENV) {
     app.listen(port, () => {
         console.log(`Auth Service listening at ${port}`);
     })
