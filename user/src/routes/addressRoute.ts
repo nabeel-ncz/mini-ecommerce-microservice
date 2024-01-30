@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { addressController } from "../handlers/controllers";
+import { isBlockedUser } from "../handlers/middlewares/checkBlockedUser";
 import * as dependencies from "../config/dependencies";
 import {
     setCurrentUser,
-    requireAuth,
-    checkBlockedUser
+    requireAuth
 } from "@nabeelshop/common";
 
 const router: Router = Router();
@@ -15,9 +15,9 @@ const {
 } = addressController(dependencies);
 
 router.route('/api/address')
-    .post(setCurrentUser, requireAuth, checkBlockedUser, addAddressController)
+    .post(setCurrentUser, requireAuth, isBlockedUser, addAddressController)
 
 router.route('/api/address/:id')
-    .delete(setCurrentUser, requireAuth, checkBlockedUser, deleteAddressController);
+    .delete(setCurrentUser, requireAuth, isBlockedUser, deleteAddressController);
 
 export default router;
