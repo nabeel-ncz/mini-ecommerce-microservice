@@ -2,13 +2,17 @@ import { User } from "../../models/user";
 import { UserEntity } from "../../../entities";
 
 export const updateProfile = async (
-    id: string, data: UserEntity
+    id: string,
+    data: { name: string, email: string }
 ): Promise<UserEntity | null> => {
     try {
 
         const updatedUser = await User.findByIdAndUpdate(id, {
-            $set: { ...data }
-        })
+            name: data.name,
+            email: data.email
+        }, {
+            new: true
+        });
 
         if (!updatedUser) {
             throw new Error("Profile updation failed!");

@@ -9,12 +9,13 @@ export default (dependencie: any) => {
     }
 
     const interactor = async (
+        id: string,
         data: {
             name: string,
             email: string
         }
     ) => {
-        return await updateProfile(data);
+        return await updateProfile(id, data);
     }
 
     return { interactor }
