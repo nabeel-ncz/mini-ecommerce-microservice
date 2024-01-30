@@ -4,11 +4,13 @@ import {
     errorHandler,
 } from "@nabeelshop/common";
 import productRoutes from "./routes/productRoutes"
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
