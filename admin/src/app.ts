@@ -10,6 +10,7 @@ import {
     errorHandler
 } from "@nabeelshop/common";
 
+import cookieParser from "cookie-parser";
 import path from "path";
 import userRouter from "./routes/userRoutes";
 import productRouter from "./routes/productRoutes";
@@ -18,6 +19,7 @@ const app: Application = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
