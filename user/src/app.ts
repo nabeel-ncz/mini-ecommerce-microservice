@@ -7,11 +7,13 @@ import {
 
 import userRoutes from "./routes/userRoute";
 import addressRoutes from "./routes/addressRoute";
+import cookieParser from "cookie-parser";
 
 const app: Application = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).json({
